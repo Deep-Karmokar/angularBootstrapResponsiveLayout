@@ -1,0 +1,22 @@
+.cardContainer {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.bottomBarCard {
+  background: #eee;
+}
+.pointer {
+  cursor: pointer;
+}
+.detailsCardTitle {
+  color: #555;
+  font-size: medium;
+}
+.detailsBottomBar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

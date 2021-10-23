@@ -1,0 +1,100 @@
+<div class="row">
+  <div
+    class="pb-3"
+    *ngFor="let card of cards; let z = index"
+    [ngClass]="{
+      'col-md-8': card.imageIsVertical,
+      'col-md-4': !card.imageIsVertical
+    }"
+  >
+    <div *ngIf="!card.imageIsVertical" class="card cardContainer">
+      <img [src]="card.postImg" class="card-img-top cardImage" alt="..." />
+      <div class="card-body text-center px-5">
+        <h6 class="card-title user-select-none">{{ card.postMsg }}</h6>
+      </div>
+      <div class="row bottomBarCard">
+        <div
+          class="col-4 text-center p-2 text-muted user-select-none"
+          (click)="incrementLikes(card)"
+        >
+          <img src="../../assets/heart-fill.svg" class="pr-1" alt="" />
+          {{ card.postLikes }}
+        </div>
+        <div class="col-4 text-center p-2 text-muted user-select-none">
+          <img src="../../assets/chat-fill.svg" class="pr-1" alt="" />
+          {{ card.postComments }}
+        </div>
+        <div class="col-4 text-center p-2 text-muted user-select-none">
+          <img src="../../assets/eye.svg" class="pr-1" alt="" />
+          {{ card.postViews }}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="card.imageIsVertical" class="card cardContainer">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img
+            [src]="card.postImg"
+            class="card-img"
+            style="height: 43vh"
+            alt="..."
+          />
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="card-title hidden-md detailsCardTitle user-select-none">
+              {{ card.title | uppercase }}
+            </h5>
+            <h6 class="card-title user-select-none">
+              {{ card.postMsg }}
+            </h6>
+            <p class="card-text">
+              <small class="text-muted user-select-none">
+                {{ card.postDescription }}
+              </small>
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2">
+                <img
+                  style="height: 5vmin; width: 5vmin"
+                  class="rounded-circle"
+                  src="../../assets/images.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="col-md-10">
+                <small class="font-weight-bold user-select-none">
+                  {{ card.userName | titlecase }}
+                </small>
+                <p class="card-text">
+                  <small class="text-muted user-select-none">
+                    on {{ card.postDate | date: "medium" }}
+                  </small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row bottomBarCard">
+          <div
+            class="col-4 text-center p-2 text-muted user-select-none"
+            (click)="incrementLikes(card)"
+          >
+            <img src="../../assets/heart-fill.svg" class="pr-1" alt="" />
+            {{ card.postLikes }}
+          </div>
+          <div class="col-4 text-center p-2 text-muted user-select-none">
+            <img src="../../assets/chat-fill.svg" class="pr-1" alt="" />
+            {{ card.postComments }}
+          </div>
+          <div class="col-4 text-center p-2 text-muted user-select-none">
+            <img src="../../assets/eye.svg" class="pr-1" alt="" />
+            {{ card.postViews }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
