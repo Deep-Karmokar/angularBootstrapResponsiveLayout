@@ -1,14 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent implements OnChanges {
   @Input() cards: any;
   constructor() {}
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges) {
     for (let index = 0; index < this.cards.length; index++) {
       this.imageIsVertical(this.cards[index].postImg, index);
     }
